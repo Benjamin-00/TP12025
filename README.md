@@ -1,11 +1,19 @@
-# TP12025
-
-Este repositorio simula ser parte del ecosistema del sector de Business Intelligence Conosur de la ONU del que usted forma parte.
-
-Contiene scripts que se utilizaron con anterioridad en un proyecto de análisis descriptivo de datos que están siendo revisados por un compañero data vertical. Estos deben servir como punto inicial para su análisis.
-
-Deben forkear este repositorio y subir en ese fork sus scripts.
-
-El link del repositorio debe estar subido en la [planilla de grupos]([url](https://docs.google.com/spreadsheets/d/1BTuO-GNJ6WHmTZdWhTPOq6j8sxcpJgg2EMoZemGQLaM/edit?gid=0#gid=0))
-
-Recuerden que si bien crean grupos para el armado del repositorio, la entrega del informe técnico a Rubén Feffer, y la realización del análisis descriptivo, el video a Ana Priestly es individual.
+# # Creamos la tabla y la transformamos en un dataframe para el gráfico
+# tabla_contingencia <- datos_analisis_1 %>%
+#   tabyl(recoleccionDeBasura, plagas) %>%
+#   adorn_totals(where = c("row", "col")) %>%
+#   rename(
+#     "Frecuencia de recolección" = recoleccionDeBasura,
+#     "No hay plagas" = No,
+#     "Hay plagas" = Sí
+#   ) %>%
+#   gather(key = "Plagas", value = "Frecuencia", -`Frecuencia de recolección`)  # Convertimos de wide a long format
+# 
+# # Ahora graficamos usando ggplot
+# ggplot(tabla_contingencia, aes(x = `Frecuencia de recolección`, y = Frecuencia, fill = Plagas)) +
+#   geom_bar(stat = "identity", position = "dodge") +
+#   labs(title = "Frecuencia de Recolección de Basura y Plagas",
+#        x = "Frecuencia de Recolección",
+#        y = "Frecuencia",
+#        fill = "Plagas") +
+#   theme_minimal()
